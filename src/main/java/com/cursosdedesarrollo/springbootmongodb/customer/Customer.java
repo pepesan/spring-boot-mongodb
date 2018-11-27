@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.springbootmongodb;
+package com.cursosdedesarrollo.springbootmongodb.customer;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;

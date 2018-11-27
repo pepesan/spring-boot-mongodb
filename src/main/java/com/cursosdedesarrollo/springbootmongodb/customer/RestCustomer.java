@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.springbootmongodb;
+package com.cursosdedesarrollo.springbootmongodb.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

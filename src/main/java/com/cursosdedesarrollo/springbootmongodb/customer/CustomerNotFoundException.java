@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.springbootmongodb;
+package com.cursosdedesarrollo.springbootmongodb.customer;
 
 public class CustomerNotFoundException extends RuntimeException {
 

@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.springbootmongodb;
+package com.cursosdedesarrollo.springbootmongodb.customer;
 
 import java.util.List;
 
