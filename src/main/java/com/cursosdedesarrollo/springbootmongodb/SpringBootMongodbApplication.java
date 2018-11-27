@@ -42,7 +42,6 @@ public class SpringBootMongodbApplication {
                 System.out.println(customer);
             }
             System.out.println();
-
             // fetch an individual customer
             System.out.println("Customer found with findByFirstName('Alice'):");
             System.out.println("--------------------------------");
