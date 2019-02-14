@@ -14,6 +14,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.jws.soap.SOAPBinding;
 import java.time.LocalDateTime;
@@ -22,6 +23,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
+@EnableSwagger2
 public class SpringBootMongodbApplication extends SpringBootServletInitializer {
 
     @Autowired
