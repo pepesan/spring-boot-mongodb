@@ -4,21 +4,29 @@ import com.cursosdedesarrollo.springbootmongodb.books.Book;
 import com.cursosdedesarrollo.springbootmongodb.books.BookRepository;
 import com.cursosdedesarrollo.springbootmongodb.customer.Customer;
 import com.cursosdedesarrollo.springbootmongodb.customer.CustomerRepository;
+import com.cursosdedesarrollo.springbootmongodb.persons.Address;
+import com.cursosdedesarrollo.springbootmongodb.persons.Hobby;
+import com.cursosdedesarrollo.springbootmongodb.persons.Person;
+import com.cursosdedesarrollo.springbootmongodb.persons.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
 import javax.jws.soap.SOAPBinding;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
-public class SpringBootMongodbApplication {
+public class SpringBootMongodbApplication extends SpringBootServletInitializer {
 
     @Autowired
     private BookRepository bookRepository;
+    @Autowired private PersonRepository personRepository;
 
 
 
@@ -81,6 +89,28 @@ public class SpringBootMongodbApplication {
                 System.out.println(book);
             }
 
+
+            personRepository.deleteAll();
+
+            final Address address = new Address("19 Imaginary Road", "Imaginary Place", "Imaginary City", "UK");
+
+            final Hobby badminton = new Hobby("Badminton");
+            final Hobby tv = new Hobby("TV");
+            final List<Hobby> hobbies = Arrays.asList(badminton, tv);
+
+            final Person john = new Person("John", "Doe", LocalDateTime.now(), address, "Winner", 100, hobbies);
+            personRepository.save(john);
+
+            System.out.println("Find by first name");
+            personRepository.findByFirstName("John").forEach(System.out::println);
+
+            System.out.println("Find by country (UK)");
+            personRepository.findByCountry("UK").forEach(System.out::println);
+
+            address.setCountry("US");
+            personRepository.save(john);
+            System.out.println("Find by country (US)");
+            personRepository.findByCountry("US").forEach(System.out::println);
         };
     }
 

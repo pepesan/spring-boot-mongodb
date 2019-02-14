@@ -21,6 +21,8 @@ public class Customer {
     @NotBlank
     public String lastName;
 
+    public String email;
+
 
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
