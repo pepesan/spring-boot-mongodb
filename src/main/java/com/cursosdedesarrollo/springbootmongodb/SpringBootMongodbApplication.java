@@ -94,13 +94,25 @@ public class SpringBootMongodbApplication extends SpringBootServletInitializer {
 
             personRepository.deleteAll();
 
-            final Address address = new Address("19 Imaginary Road", "Imaginary Place", "Imaginary City", "UK");
+            final Address address =
+                    new Address(
+                            "19 Imaginary Road",
+                            "Imaginary Place",
+                            "Imaginary City",
+                            "UK");
 
             final Hobby badminton = new Hobby("Badminton");
             final Hobby tv = new Hobby("TV");
             final List<Hobby> hobbies = Arrays.asList(badminton, tv);
 
-            final Person john = new Person("John", "Doe", LocalDateTime.now(), address, "Winner", 100, hobbies);
+            final Person john = new Person(
+                    "John",
+                    "Doe",
+                    LocalDateTime.now(),
+                    address,
+                    "Winner",
+                    100,
+                    hobbies);
             personRepository.save(john);
 
             System.out.println("Find by first name");
@@ -113,6 +125,9 @@ public class SpringBootMongodbApplication extends SpringBootServletInitializer {
             personRepository.save(john);
             System.out.println("Find by country (US)");
             personRepository.findByCountry("US").forEach(System.out::println);
+
+            System.out.println("Find by hobby (TV)");
+            personRepository.findByHobby("TV").forEach(System.out::println);
         };
     }
 

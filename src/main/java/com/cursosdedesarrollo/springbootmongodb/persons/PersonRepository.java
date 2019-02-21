@@ -11,4 +11,7 @@ public interface PersonRepository extends MongoRepository<Person, String> {
 
     @Query("{'address.country': ?0}")
     List<Person> findByCountry(final String country);
+
+    @Query("{'hobbies.name': ?0}")
+    List<Person> findByHobby(final String hobbie);
 }
