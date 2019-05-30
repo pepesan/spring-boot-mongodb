@@ -1,5 +1,6 @@
 package com.cursosdedesarrollo.springbootmongodb.persons;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,8 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @ToString(exclude = {"id", "dateOfBirth"})
 @Document(collection = "people")
 public class Person {

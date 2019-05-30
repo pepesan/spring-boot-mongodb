@@ -13,7 +13,7 @@ public class Address {
     private String addressLineTwo;
     private String city;
     private String country;
-
+    /*
     @JsonCreator
     public Address(
             final String addressLineOne,
@@ -25,4 +25,5 @@ public class Address {
         this.city = city;
         this.country = country;
     }
+    */
 }
