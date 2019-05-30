@@ -1,12 +1,12 @@
 package com.cursosdedesarrollo.springbootmongodb.persons;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
-@ToString
+@Data
 public class Address {
 
     private String addressLineOne;
@@ -14,6 +14,7 @@ public class Address {
     private String city;
     private String country;
 
+    @JsonCreator
     public Address(
             final String addressLineOne,
             final String addressLineTwo,

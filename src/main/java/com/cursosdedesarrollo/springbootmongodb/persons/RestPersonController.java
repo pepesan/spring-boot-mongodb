@@ -9,28 +9,29 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/person")
 public class RestPersonController {
     @Autowired
     private PersonRepository repository;
 
-    @GetMapping("/person")
+    @GetMapping
     List<Person> all() {
         return repository.findAll();
     }
 
-    @PostMapping("/person")
+    @PostMapping
     Person newPerson(@RequestBody Person person) {
         return repository.save(person);
     }
 
-    @GetMapping("/person/{id}")
+    @GetMapping("/{id}")
     Person one(@PathVariable String id) {
 
         return repository.findById(id)
                 .orElseThrow(() -> new PersonNotFoundException(id));
     }
 
-    @PutMapping("/person/{id}")
+    @PutMapping("/{id}")
     Person replacePerson(@RequestBody Person person, @PathVariable String id) {
 
         return repository.findById(id)
@@ -48,7 +49,7 @@ public class RestPersonController {
                 });
     }
 
-    @DeleteMapping("/person/{id}")
+    @DeleteMapping("/{id}")
     void deletePerson(@PathVariable String id) {
         repository.deleteById(id);
     }
