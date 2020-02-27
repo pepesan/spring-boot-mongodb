@@ -38,6 +38,7 @@ public class RestCustomer {
                 .map(customer1 -> {
                     customer1.firstName=customer.firstName;
                     customer1.lastName=customer.lastName;
+                    customer1.email=customer.email;
                     return repository.save(customer);
                 })
                 .orElseGet(() -> {
