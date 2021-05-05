@@ -16,7 +16,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import javax.jws.soap.SOAPBinding;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
